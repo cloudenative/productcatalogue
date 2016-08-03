@@ -34,7 +34,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public List<ProductDto> getProductsByIds(long[] productIds) {
+    public List<ProductDto> getProductsByIds(Long[] productIds) {
         return productDao.getProductsByIds(Longs.asList(productIds));
     }
 }
