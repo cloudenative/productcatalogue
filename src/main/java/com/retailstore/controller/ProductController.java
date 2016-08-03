@@ -29,7 +29,10 @@ public class ProductController {
     @RequestMapping(value = "/searchbyIds", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductDto> getProductsByTypeAndName(@RequestParam(value = "productIds", required = true) final String productIds) {
         String[] stringIds = productIds.split(",");
-        long[] ids = Arrays.stream(stringIds).mapToLong(Long::parseLong).toArray();
+        long[] ids = new long[users.length];   
+		for (int i = 0; i < users.length; i++) {   
+    		ids[i] = long.parseLong(users[i]);   
+		}
         return productService.getProductsByIds(ids);
     }
 
