@@ -30,8 +30,8 @@ public class ProductController {
     public List<ProductDto> getProductsByTypeAndName(@RequestParam(value = "productIds", required = true) final String productIds) {
         String[] stringIds = productIds.split(",");
         long[] ids = new long[stringIds.length];   
-		for (int i = 0; i < users.length; i++) {   
-    		ids[i] = long.parseLong(users[i]);   
+		for (int i = 0; i < stringIds.length; i++) {   
+    		ids[i] = long.parseLong(stringIds[i]);   
 		}
         return productService.getProductsByIds(ids);
     }
