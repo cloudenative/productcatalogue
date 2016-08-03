@@ -33,7 +33,11 @@ public class ProductController {
 		for (int i = 0; i < stringIds.length; i++) {   
     		ids[i] = Long.parseLong(stringIds[i]);   
 		}
-        return productService.getProductsByIds(ids);
+		long[] idLongs = new long[ids.length];
+		for(int j=0;j<ids.length;j++){
+		    idLongs[j] = ids[j];
+		}
+        return productService.getProductsByIds(idLongs);
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
